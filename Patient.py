@@ -2,6 +2,12 @@ class Patient:
     """Patient class"""
 
     def __init__(self, first_name, surname, age, mobile, postcode):
+        self.first_name = first_name
+        self.surname = surname
+        self.age = age 
+        self.mobile = mobile
+        self.postcode = postcode
+        
         """
         Args:
             first_name (string): First name
