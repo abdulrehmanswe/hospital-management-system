@@ -1,34 +1,28 @@
 class Patient:
     """Patient class"""
 
-    def __init__(self, first_name, surname, age, mobile, postcode):
-        self.first_name = first_name
-        self.surname = surname
-        self.age = age 
-        self.mobile = mobile
-        self.postcode = postcode
-        
-        """
+    """
         Args:
             first_name (string): First name
             surname (string): Surname
             age (int): Age
             mobile (string): the mobile number
             address (string): address
-        """
+    """
 
-        #ToDo1
-        pass
-        self.__doctor = 'None'
        
-
+    def __init__(self, first_name, surname, age, mobile, postcode):
+        self.__first_name = first_name
+        self.__surname = surname
+        self.__age = age 
+        self.__mobile = mobile
+        self.__postcode = postcode
+        self.__doctor = "None"  
     
     def full_name(self) :
         """full name is first_name and surname"""
-        #ToDo2
-        pass
-
-
+        return f"{self.__first_name} {self.__surname}"
+    
     def get_doctor(self) :
         #ToDo3
         pass
