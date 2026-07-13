@@ -42,7 +42,10 @@ class Admin:
 
         # check if the username and password match the registered ones
         #ToDo1
-        pass
+        if username == self.__username and password == self.__password:
+            return True
+        else:
+            return False
 
     def find_index(self,index,doctors):
         
@@ -63,8 +66,11 @@ class Admin:
                             ... the speciality of the doctor in that order.
         """
         #ToDo2
-        pass
-
+        first_name = input("Enter first name: ")
+        surname = input("Enter surname: ")
+        speciality = input("Enter specaility: ")
+        return first_name,surname, speciality
+        
     def doctor_management(self, doctors):
         """
         A method that deals with registering, viewing, updating, deleting doctors
@@ -82,7 +88,7 @@ class Admin:
         print(' 4 - Delete')
 
         #ToDo3
-        pass
+        op = input("Option: ")
 
 
         # register
@@ -92,7 +98,7 @@ class Admin:
             # get the doctor details
             print('Enter the doctor\'s details:')
             #ToDo4
-            pass
+            first_name, surname, speciality = self.get_doctor_details()
 
             # check if the name is already registered
             name_exists = False
@@ -100,7 +106,8 @@ class Admin:
                 if first_name == doctor.get_first_name() and surname == doctor.get_surname():
                     print('Name already exists.')
                     #ToDo5
-                    pass # save time and end the loop
+                    name_exists = True
+                    break # save time and end the loop
 
             #ToDo6
             pass# add the doctor ...

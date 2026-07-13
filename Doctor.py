@@ -21,24 +21,24 @@ class Doctor:
         pass
 
     def get_first_name(self) :
-        #ToDo2
-        pass
+        first_name = input("Enter the doctor name: ")
+                  
 
     def set_first_name(self, new_first_name):
         #ToDo3
         pass
 
     def get_surname(self) :
-        #ToDo4
-        pass
+        surname = input("Enter the doctor surname: ")
+                  
 
     def set_surname(self, new_surname):
         #ToDo5
         pass
 
     def get_speciality(self) :
-        #ToDo6
-        pass
+        speciality = input("Enter the doctor's speciality: ")
+                  
 
     def set_speciality(self, new_speciality):
         #ToDo7

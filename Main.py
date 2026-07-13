@@ -10,8 +10,16 @@ def main():
 
     # Initialising the actors
     admin = Admin('admin','123','B1 1AB') # username is 'admin', password is '123'
-    doctors = [Doctor('John','Smith','Internal Med.'), Doctor('Jone','Smith','Pediatrics'), Doctor('Jone','Carlos','Cardiology')]
-    patients = [Patient('Sara','Smith', 20, '07012345678','B1 234'), Patient('Mike','Jones', 37,'07555551234','L2 2AB'), Patient('Daivd','Smith', 15, '07123456789','C1 ABC')]
+    doctors = [
+        Doctor('John','Smith','Internal Med.'), 
+        Doctor('Jone','Smith','Pediatrics'), 
+        Doctor('Jone','Carlos','Cardiology')
+        ]
+    patients = [
+        Patient('Sara','Smith', 20, '07012345678','B1 234'), 
+        Patient('Mike','Jones', 37,'07555551234','L2 2AB'), 
+        Patient('Daivd','Smith', 15, '07123456789','C1 ABC')
+        ]
     discharged_patients = []
 
     # keep trying to login tell the login details are correct
@@ -37,12 +45,14 @@ def main():
 
         if op == '1':
             # 1- Register/view/update/delete doctor
-         #ToDo1
-          pass
+         #ToDo1 
+            admin.doctor_management(doctors)
 
         elif op == '2':
             # 2- View or discharge patients
-            #ToDo2
+            #ToDo2  
+            
+            
             pass
 
             while True:
