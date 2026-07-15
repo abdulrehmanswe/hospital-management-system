@@ -62,14 +62,13 @@ class Admin:
         """
         Get the details needed to add a doctor
         Returns:
-            first name, surname and ...
-                            ... the speciality of the doctor in that order.
+            first name, surname and the speciality of the doctor in that order.
         """
         #ToDo2
         first_name = input("Enter first name: ")
         surname = input("Enter surname: ")
         speciality = input("Enter specaility: ")
-        return first_name,surname, speciality
+        return (first_name,surname, speciality)
         
     def doctor_management(self, doctors):
         """
@@ -110,9 +109,10 @@ class Admin:
                     break # save time and end the loop
 
             #ToDo6
-            pass# add the doctor ...
+            if not name_exists:
+                doctors.append(Doctor(first_name,surname,speciality)) # add the doctor ...
                                                          # ... to the list of doctors
-            print('Doctor registered.')
+                print('Doctor registered.')
 
         # View
         elif op == '2':
