@@ -118,7 +118,7 @@ class Admin:
         elif op == '2':
             print("-----List of Doctors-----")
             #ToDo7
-            pass
+            self.view(doctors)
 
         # Update
         elif op == '3':
@@ -151,7 +151,17 @@ class Admin:
             op = int(input('Input: ')) # make the user input lowercase
 
             #ToDo8
-            pass
+            if op==1:
+                new_first_name = str(input("Enter the new first name = "))
+                doctors[doctor_index].set_first_name(new_first_name)
+            elif op==2:
+                new_surname = str(input("Enter the new surname = "))
+                doctors[doctor_index].set_surname(new_surname)
+            elif op==3:
+                new_speciality = str(input("Enter the speciality = "))
+                doctors[doctor_index].set_speciality(new_speciality)
+                
+                
 
         # Delete
         elif op == '4':
