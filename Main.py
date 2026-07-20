@@ -50,17 +50,15 @@ def main():
 
         elif op == '2':
             # 2- View or discharge patients
-            #ToDo2  
-            
-            
-            pass
+            #ToDo2
+            admin.view_patient(patients)  
 
             while True:
                 op = input('Do you want to discharge a patient(Y/N):').lower()
 
                 if op == 'yes' or op == 'y':
                     #ToDo3
-                    pass
+                    admin.discharge(patients,discharged_patients)
 
                 elif op == 'no' or op == 'n':
                     break
@@ -72,20 +70,21 @@ def main():
         elif op == '3':
             # 3 - view discharged patients
             #ToDo4
-            pass
+            admin.view_discharge(discharged_patients)
 
         elif op == '4':
             # 4- Assign doctor to a patient
             admin.assign_doctor_to_patient(patients, doctors)
 
         elif op == '5':
-            # 5- Update admin detais
+            # 5- Update admin details
             admin.update_details()
 
         elif op == '6':
             # 6 - Quit
             #ToDo5
-            pass
+            print("Goodbye.")
+            break
 
         else:
             # the user did not enter an option that exists in the menu

@@ -153,13 +153,13 @@ class Admin:
             #ToDo8
             if op==1:
                 new_first_name = str(input("Enter the new first name = "))
-                doctors[doctor_index].set_first_name(new_first_name)
+                doctors[index].set_first_name(new_first_name)
             elif op==2:
                 new_surname = str(input("Enter the new surname = "))
-                doctors[doctor_index].set_surname(new_surname)
+                doctors[index].set_surname(new_surname)
             elif op==3:
                 new_speciality = str(input("Enter the speciality = "))
-                doctors[doctor_index].set_speciality(new_speciality)
+                doctors[index].set_speciality(new_speciality)
                 
                 
 
@@ -168,13 +168,18 @@ class Admin:
             print("-----Delete Doctor-----")
             print('ID |          Full Name           |  Speciality')
             self.view(doctors)
-
-            doctor_index = input('Enter the ID of the doctor to be deleted: ')
-            #ToDo9
-            pass
-
-           
-            print('The id entered is incorrect')
+            try:                    
+                index = int(input('Enter the ID of the doctor to be deleted: '))-1
+                doctor_index=self.find_index(index,doctors)
+                if doctor_index!=False:
+                    doctors.pop(index)
+                    print("Doctor deleted sucessfully.")
+                    
+                else:
+                    print("Doctor not found")                
+                    # doctor_index is the ID mines one (-1)  
+            except ValueError:
+                print("The ID entered is incorrect")
 
         # if the id is not in the list of patients
         else:
@@ -190,7 +195,7 @@ class Admin:
         print("-----View Patients-----")
         print('ID |          Full Name           |      Doctor`s Full Name      | Age |    Mobile     | Postcode ')
         #ToDo10
-        pass
+        self.view(patients)
 
     def assign_doctor_to_patient(self, patients, doctors):
         """
@@ -238,7 +243,9 @@ class Admin:
                     
                 # link the patients to the doctor and vice versa
                 #ToDo11
-                pass
+                patients[patient_index].link(doctors[doctor_index])
+                
+                doctors[doctor_index].add_patient(patients[patient_index])
                 
                 print('The patient is now assign to the doctor.')
 
@@ -250,7 +257,7 @@ class Admin:
             print('The id entered is incorrect')
 
 
-    def discharge(self, patients, discharge_patients):
+    def discharge(self, patients, discharged_patients):
         """
         Allow the admin to discharge a patient when treatment is done
         Args:
@@ -260,9 +267,21 @@ class Admin:
         print("-----Discharge Patient-----")
 
         patient_index = input('Please enter the patient ID: ')
-
         #ToDo12
-        pass
+        try:
+            patient_index = int(patient_index)-1
+            if patient_index in range(len(patients)):
+                discharged_patient = patients.pop(patient_index)
+                discharged_patients.append(discharged_patient)
+                print("Patient discharged successfully.")
+            else:
+                print("The id entered was not found.")
+        
+        except ValueError:
+             print("The ID entered is incorrect enter in number.")
+
+        
+        
 
     def view_discharge(self, discharged_patients):
         """
@@ -274,7 +293,7 @@ class Admin:
         print("-----Discharged Patients-----")
         print('ID |          Full Name           |      Doctor`s Full Name      | Age |    Mobile     | Postcode ')
         #ToDo13
-        pass
+        self.view(discharged_patients)
 
     def update_details(self):
         """
@@ -289,7 +308,10 @@ class Admin:
 
         if op == 1:
             #ToDo14
-            pass
+            if password == input('Enter the new password again: '):
+                self.__password = password
+            else:
+                print("Passwords do not match.")
 
         elif op == 2:
             password = input('Enter the new password: ')
@@ -299,9 +321,10 @@ class Admin:
 
         elif op == 3:
             #ToDo15
-            pass
+            address = input("Enter the new address: ")
+            self.__address = address
 
         else:
             #ToDo16
-            pass
+            print("Invalid option.")
 

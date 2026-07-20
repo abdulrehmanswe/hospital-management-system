@@ -25,7 +25,7 @@ class Patient:
     
     def get_doctor(self) :
         #ToDo3
-        pass
+        return self.__doctor
 
     def link(self, doctor):
         """Args: doctor(string): the doctor full name"""
